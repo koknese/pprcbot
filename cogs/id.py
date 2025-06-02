@@ -308,6 +308,9 @@ class Identification(GroupCog, group_name="id", group_description="Phoenix eID s
     )
     @app_commands.guilds(discord.Object(id=server_id))
     async def set_rank(self, interaction: discord.Interaction, target_user: discord.Member, rank: discord.Role):
+        if not interaction.user.guild_permissions.manage_messages:
+            await interaction.response.send_message("You are lacking permissions!", ephemeral=True)
+            return
         # convert rank to string 
         parsedRank = str(rank)
         try: 
