@@ -104,7 +104,7 @@ class Identificationui(ui.Modal, title='You are signing up for a Phoenix eID ©'
 
            @discord.ui.button(label="Accept application",style=discord.ButtonStyle.green)
            async def accept_application(self, interaction:discord.Interaction, view: discord.ui.View):
-               #try:
+               try:
                    conn = sqlite3.connect('data.db')
                    c = conn.cursor()
         
